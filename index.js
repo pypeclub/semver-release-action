@@ -15,6 +15,7 @@ async function getMostRecentRepoTag() {
   })
 
   const prx = new RegExp(`^${prefix}`,'g');
+  console.log(prx)
   const versions = refs
     .map(ref => ref.ref.replace(/^refs\/tags\//g, '').replace(prx, ''))
     .map(tag => semver.parse(tag, { loose: true }))
